@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producer — RedBeats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="toast" id="toast">
+  <span class="material-symbols-outlined">check_circle</span>
+  <span id="toast-text">Added to cart</span>
+</div>
+
+<div class="overlay-scrim" id="scrim" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">
+    <h3>Your cart</h3>
+    <button class="icon-btn" onclick="closeCart()" aria-label="Close cart">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-drawer-foot">
+    <div class="cart-subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+    <button class="btn btn-primary btn-block" onclick="goToCheckout()">
+      <span class="material-symbols-outlined">shopping_cart_checkout</span> Checkout
+    </button>
+  </div>
+</aside>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a class="logo" href="index.html">Red<span>Beats</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a class="nav-link" href="browse.html">Browse Beats</a>
+      <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" id="cart-badge-nav" style="display:none;">0</span>
+      </button>
+      <a class="nav-link" href="register.html?mode=login">Login</a>
+      <a class="btn btn-primary btn-sm" href="register.html">Sign Up</a>
+    </nav>
+    <a class="mobile-nav-toggle" href="browse.html" aria-label="Browse beats">
+      <span class="material-symbols-outlined">menu</span>
+    </a>
+  </div>
+</header>
+
+<main class="shell" id="page-producer" style="padding-bottom:60px;">
+  <div class="profile-banner" id="profile-banner"></div>
+  <div class="profile-header">
+    <div class="profile-avatar" id="profile-avatar"></div>
+    <div class="profile-info">
+      <h2 id="profile-name"></h2>
+      <div class="profile-meta">
+        <span class="material-symbols-outlined" style="font-size:16px;">location_on</span>
+        <span id="profile-location"></span>
+      </div>
+      <p class="profile-bio" id="profile-bio"></p>
+      <div class="profile-stats">
+        <div><strong id="profile-followers"></strong>Followers</div>
+        <div><strong id="profile-tracks-count"></strong>Tracks</div>
+        <div><strong id="profile-sales"></strong>Sales</div>
+      </div>
+      <div class="profile-genres" id="profile-genres"></div>
+    </div>
+    <div class="profile-actions">
+      <button class="btn btn-primary" id="follow-btn" onclick="toggleFollow()">Follow</button>
+      <button class="btn btn-secondary">Message</button>
+    </div>
+  </div>
+
+  <div class="track-section-head">
+    <h3 style="font-family:var(--font-display);font-size:19px;">Tracks</h3>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <div class="search-bar"><span class="material-symbols-outlined">search</span><input type="text" placeholder="Search this producer's tracks"></div>
+      <button class="btn btn-secondary btn-sm">Edit</button>
+    </div>
+  </div>
+  <div class="beat-list" id="profile-track-list"></div>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/producer.js"></script>
+</body>
+</html>

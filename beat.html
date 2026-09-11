@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beat details — RedBeats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="toast" id="toast">
+  <span class="material-symbols-outlined">check_circle</span>
+  <span id="toast-text">Added to cart</span>
+</div>
+
+<div class="overlay-scrim" id="scrim" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+  <div class="cart-drawer-head">
+    <h3>Your cart</h3>
+    <button class="icon-btn" onclick="closeCart()" aria-label="Close cart">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-drawer-foot">
+    <div class="cart-subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+    <button class="btn btn-primary btn-block" onclick="goToCheckout()">
+      <span class="material-symbols-outlined">shopping_cart_checkout</span> Checkout
+    </button>
+  </div>
+</aside>
+
+<header class="topnav">
+  <div class="topnav-inner">
+    <a class="logo" href="index.html">Red<span>Beats</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a class="nav-link" href="browse.html">Browse Beats</a>
+      <button class="cart-btn" onclick="openCart()" aria-label="Open cart">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span class="cart-badge" id="cart-badge-nav" style="display:none;">0</span>
+      </button>
+      <a class="nav-link" href="register.html?mode=login">Login</a>
+      <a class="btn btn-primary btn-sm" href="register.html">Sign Up</a>
+    </nav>
+    <a class="mobile-nav-toggle" href="browse.html" aria-label="Browse beats">
+      <span class="material-symbols-outlined">menu</span>
+    </a>
+  </div>
+</header>
+
+<main class="shell" id="page-beat" style="padding-bottom:60px;">
+  <div class="beat-detail-top">
+    <div class="player-bar">
+      <div class="player-cover" id="detail-cover"></div>
+      <div class="player-meta">
+        <div class="p-title" id="detail-title"></div>
+        <div class="p-sub" id="detail-producer"></div>
+      </div>
+      <div class="player-controls">
+        <button class="player-play-btn" id="detail-play-btn" onclick="togglePlayer()">
+          <span class="material-symbols-outlined">play_arrow</span>
+        </button>
+        <div class="player-wave-track" id="detail-waveform"></div>
+        <div class="player-time"><span id="player-current">0:00</span>&nbsp;/&nbsp;<span id="player-duration">2:48</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="beat-detail-grid">
+    <div>
+      <h3 style="font-family:var(--font-display);font-size:19px;margin-bottom:16px;">Choose a license</h3>
+      <div class="license-stack" id="license-stack"></div>
+      <button class="btn btn-primary btn-block" onclick="buyLicense()">
+        <span class="material-symbols-outlined">shopping_bag</span> Buy License
+      </button>
+      <div class="detail-desc-block">
+        <h4>About this beat</h4>
+        <p id="detail-description"></p>
+      </div>
+    </div>
+
+    <div>
+      <div class="sidebar-card">
+        <div class="sidebar-producer">
+          <div class="sidebar-avatar" id="sidebar-avatar"></div>
+          <div>
+            <div class="sidebar-producer-name" id="sidebar-producer-name"></div>
+            <div class="sidebar-producer-loc" id="sidebar-producer-loc"></div>
+          </div>
+        </div>
+        <a class="btn btn-secondary btn-block btn-sm" id="sidebar-view-profile" href="#">View profile</a>
+      </div>
+      <div class="sidebar-card">
+        <h4 style="font-size:14.5px;margin-bottom:12px;">Related tracks</h4>
+        <div id="related-tracks"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/app.js"></script>
+<script src="js/beat.js"></script>
+</body>
+</html>
